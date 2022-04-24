@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7 | Python Variables - Assign Multiple Values | Introduction to Python | CodeBook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <link rel="stylesheet" href="../../blog.css">
+</head>
+
+<body>
+
+    <section>
+        <div class="blog__container">
+            <div class="blog__heading">
+                <h1>Day 7 - Variables: Assign Multiple Values</h1>
+
+            </div>
+            <div class="blog__content">
+                <h2>Multiple Values to Multiple Variables</h2>
+                <p>Python allows you to assign values to multiple variables in one line:</p>
+                <pre><code>sh, an, ak = "Shubham", "Anubhav", "Akshay"
+print(sh)
+print(ak)
+print(an)</code></pre>
+                <h2>One Value to Multiple Variables</h2>
+                <p>And you can assign the same value to multiple variables in one line:</p>
+                <pre><code>p1 = p2 = p3 = "Shubham"
+print(p1)
+print(p2)
+print(p3)</code></pre>
+<h2>Unpack a Collection</h2>
+<p>If you have a collection of values in a list, tuple etc. Python allows you to extract the values into variables. This is called unpacking.</p>
+<h3>Unpack a list:</h3>
+<pre><code>fruits = ["apple", "banana", "cherry"]
+x, y, z = fruits
+print(x)
+print(y)
+print(z)</code></pre>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="../../blog.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>
