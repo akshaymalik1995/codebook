@@ -138,6 +138,59 @@ def about():
 <p>The canonical URL for the <code>projects</code> endpoint has a trailing slash. It's similar to a folder in a file system. If you access the URL without a trailing slash (<code>/projects</code>), Flask redirects you to the canonical URL with the trailing slash (<code>/projects/</code>).</p>
 <p>The canonical URL for the about endpoint does not have a trailing slash. It's similar to the pathname of a file. Accessing the URL with a trailing slash (<code>/about/</code>) produces a 404 "Not Found" error. This helps keep URLs unique for these resources, which helps search engines avoid indexing the same page twice.</p>
 
+<h2>URL Building</h2>
+<p>To build a URL to a specific function, use the <code>url_for()</code>  function. It accepts the name of the function as its first argument and any number of keyword arguments, each corresponding to a variable part of the URL rule. Unknown variable parts are appended to the URL as query parameters.</p>
+<p>Why would you want to build URLs using the URL reversing function <code>url_for()</code>  instead of hard-coding them into your templates?</p>
+<ul>
+    <li>Reversing is often more descriptive than hard-coding the URLs.</li>
+    <li>You can change your URLs in one go instead of needing to remember to manually change hard-coded URLs.</li>
+    <li>URL building handles escaping of special characters transparently.</li>
+    <li>The generated paths are always absolute, avoiding unexpected behavior of relative paths in browsers.</li>
+    <li>If your application is placed outside the URL root, for example, in <code>/myapplication</code>  instead of <code>/</code> , <code>url_for()</code>  properly handles that for you.</li>
+</ul>
+
+<p>For example, here we use the <code>test_request_context()</code> method to try out <code>url_for()</code>. <code>test_request_context()</code>  tells Flask to behave as though it's handling a request even while we use a Python shell.</p>
+
+<pre><code>from flask import url_for
+
+@app.route('/')
+def index():
+    return 'index'
+
+@app.route('/login')
+def login():
+    return 'login'
+
+@app.route('/user/&lt;username&gt;')
+def profile(username):
+    return f'{username}\'s profile'
+
+with app.test_request_context():
+    print(url_for('index'))
+    print(url_for('login'))
+    print(url_for('login', next='/'))
+    print(url_for('profile', username='John Doe'))
+</code></pre>
+
+<pre><code>/
+/login
+/login?next=/
+/user/John%20Doe
+</code></pre>
+
+<h2>HTTP Methods</h2>
+<p>Web applications use different HTTP methods when accessing URLs. You should familiarize yourself with the HTTP methods as you work with Flask. By default, a route only answers to GET requests. You can use the methods argument of the <code>route()</code>  decorator to handle different HTTP methods.</p>
+
+<pre><code>from flask import request
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return do_the_login()
+    else:
+        return show_the_login_form()
+</code></pre>
+<p>If GET is present, Flask automatically adds support for the HEAD method and handles HEAD requests according to the HTTP RFC. Likewise, OPTIONS is automatically implemented for you.</p>
             </div>
         </div>
 
