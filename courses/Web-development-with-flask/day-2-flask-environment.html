@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2 | Flask Environment | Web Development with Flask | Codebook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <link rel="stylesheet" href="../../blog.css">
+</head>
+
+<body>
+
+    <section>
+        <div class="blog__container">
+            <div class="blog__heading">
+                <h1>Day 1 - Flask Environment</h1>
+
+            </div>
+            <div class="blog__content">
+                <h2>Python Version</h2>
+                <p>We recommend using the latest version of Python. Flask supports Python 3.7 and newer.</p>
+                <h2>Dependencies</h2>
+                <p>These distributions will be installed automatically when installing Flask.</p>
+                <ul>
+                    <li><strong>Werkzeug</strong> implements WSGI, the standard Python interface between applications and servers.</li>
+                    <li><strong>Jinja</strong> is a template language that renders the pages your application serves.</li>
+                    <li><strong>MarkupSafe</strong> comes with Jinja. It escapes untrusted input when rendering templates to avoid injection attacks.</li>
+                    <li><strong>ItsDangerous</strong> securely signs data to ensure its integrity. This is used to protect Flask’s session cookie.</li>
+                    <li><strong>Click</strong> is a framework for writing command line applications. It provides the flask command and allows adding custom management commands.</li>
+                </ul>
+                <h2>Virtual environments</h2>
+                <p>Use a virtual environment to manage the dependencies for your project, both in development and in production.</p>
+                <p>What problem does a virtual environment solve? The more Python projects you have, the more likely it is that you need to work with different versions of Python libraries, or even Python itself. Newer versions of libraries for one project can break compatibility in another project.</p>
+                <p>Virtual environments are independent groups of Python libraries, one for each project. Packages installed for one project will not affect other projects or the operating system's packages.</p>
+                <p>Python comes bundled with the <code>venv</code> module to create virtual environments.</p>
+                <h2>Create an environment</h2>
+                <p>Create a project folder and a <code>venv</code> folder within:</p>
+                <pre><code># macOS/Linux
+$ mkdir myproject
+$ cd myproject
+$ python3 -m venv venv</code></pre>
+                <pre><code># Windows
+> mkdir myproject
+> cd myproject
+> python -m venv venv</code></pre>
+
+<h2>Activate the environment</h2>
+<p>Before you work on your project, activate the corresponding environment:</p>
+<pre><code># macOS/Linux
+$ . venv/bin/activate</code></pre>
+                    <pre><code># Windows
+> venv\Scripts\activate </code></pre>
+<p>Your shell prompt will change to show the name of the activated environment.</p>
+
+<h2>Install Flask</h2>
+<p>Within the activated environment, use the following command to install Flask:</p>
+
+<pre><code>$ pip install Flask</code></pre>
+                
+
+
+
+                
+            </div>
+        </div>
+
+    </section>
+
+    <script src="../../blog.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

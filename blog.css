@@ -35,18 +35,10 @@ body {
     font-family:'DM Sans', sans-serif ;
 }
 
-
-.blog__footer {
-    font-family: sans-serif;
+code:not(pre > code) {
+   color: rgb(220,20,60);
 }
 
-.blog__footer div {
-    margin: 10px 0;
-}
-
-div.codehilite {
-margin-bottom: 1rem;
-}
 
 
 

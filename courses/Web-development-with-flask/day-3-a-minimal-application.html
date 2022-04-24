@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3 | A Minimal Application | Web Development with Flask | Codebook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <link rel="stylesheet" href="../../blog.css">
+</head>
+
+<body>
+
+    <section>
+        <div class="blog__container">
+            <div class="blog__heading">
+                <h1>Day 3 - A Minimal Application</h1>
+
+            </div>
+            <div class="blog__content">
+
+                <p>A minimal Flask application looks something like this:</p>
+                <pre><code>from flask import Flask
+app = Flask(__name__)
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"</code></pre>
+
+<p>So what did that code do?</p>
+<ul>
+    <li>First we imported the <strong>Flask</strong> class. An instance of this class will be our WSGI application.</li>
+    <li>Next we create an instance of this class. The first argument is the name of the application's module or package. <code>__name__</code> is a convenient shortcut for this that is appropriate for most cases. This is needed so that Flask knows where to look for resources such as templates and static files.</li>
+    <li>We then use the <code>route()</code> decorator to tell Flask what URL should trigger our function.</li>
+    <li>The function returns the message we want to display in the user's browser. The default content type is HTML, so HTML in the string will be rendered by the browser.</li>
+</ul>
+
+<p>Save it as <code>hello.py</code> or something similar. Make sure to not call your application <code>flask.py</code> because this would conflict with Flask itself.</p>
+<p>To run the application, use the <code>flask</code> command or <code>python -m flask</code>. Before you can do that you need to tell your terminal the application to work with by exporting the <code>FLASK_APP</code> environment variable:</p>
+<pre><code>#Bash
+$ export FLASK_APP=hello
+$ flask run
+  * Running on http://127.0.0.1:5000/</code></pre>
+<pre><code>#CMD
+> set FLASK_APP=hello
+> flask run
+  * Running on http://127.0.0.1:5000/</code></pre>
+
+  <p>As a shortcut, if the file is named <code>app.py</code> or <code>wsgi.py</code>, you don't have to set the FLASK_APP environment variable.</p>
+
+  <p>This launches a very simple builtin server, which is good enough for testing but probably not what you want to use in production.</p>
+  <p>Now head over to http://127.0.0.1:5000/, and you should see your hello world greeting.</p>
+  <h3>Externally Visible Server:</h3>
+  <p>If you run the server you will notice that the server is only accessible from your own computer, not from any other in the network. This is the default because in debugging mode a user of the application can execute arbitrary Python code on your computer.</p>
+  <p>If you have the debugger disabled or trust the users on your network, you can make the server publicly available simply by adding <code>--host=0.0.0.0</code> to the command line:</p>
+  <pre><code>$ flask run --host=0.0.0.0</code></pre>
+  <p>This tells your operating system to listen on all public IPs.</p>
+
+  <h2>Debug Mode</h2>
+  <p>The <code>flask run</code> command can do more than just start the development server. By enabling debug mode, the server will automatically reload if code changes, and will show an interactive debugger in the browser if an error occurs during a request.</p>
+  <h3>Warning:</h3>
+  <p>The debugger allows executing arbitrary Python code from the browser. It is protected by a pin, but still represents a major security risk. Do not run the development server or debugger in a production environment.</p>
+  <p>To enable all development features, set the <code>FLASK_ENV</code> environment variable to development before calling <code>flask run</code>.</p>
+  <pre><code># Bash
+$ export FLASK_ENV=development
+$ flask run</code></pre>
+
+
+
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <script src="../../blog.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>
