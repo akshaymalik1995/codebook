@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 8 - Output Variables Introduction to Python | CodeBook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <link rel="stylesheet" href="../../blog.css">
+</head>
+
+<body>
+
+    <section>
+        <div class="blog__container">
+            <div class="blog__heading">
+                <h1>Day 8 - Output variables</h1>
+
+            </div>
+            <div class="blog__content">
+                <p>The Python <code>print()</code>  function is often used to output variables.</p>
+                <pre><code>x = "Python is awesome"
+print(x)</code></pre>
+                <p>In the <code>print()</code>  function, you output multiple variables, separated by a comma:</p>
+                <pre><code>x = "Python"
+y = "is"
+z = "awesome"
+print(x, y, z) # => Python is awesome</code></pre>
+                <p>You can also use the <code>+</code>  operator to output multiple variables:</p>
+                <pre><code>x = "Python "
+y = "is "
+z = "awesome"
+print(x + y + z) # => Python is awesome</code></pre>
+<p>Notice the space character after "Python " and "is ", without them the result would be "Pythonisawesome".</p>
+<p>For numbers, the <code>+</code>  character works as a mathematical operator:</p>
+<pre><code>x = 5
+y = 10
+print(x + y) # => 15</code></pre>
+
+<p>In the <code>print()</code>  function, when you try to combine a string and a number with the <code>+</code>  operator, Python will give you an error:</p>
+<pre><code>x = 5
+y = "John"
+print(x + y)
+# => TypeError: unsupported operand type(s) for +: 'int' and 'str'</code></pre>
+<p>The best way to output multiple variables in the <code>print()</code>  function is to separate them with commas, which even support different data types:</p>
+<pre><code>x = 5
+y = "John"
+print(x + y) # => 5 John</code></pre>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="../../blog.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>
