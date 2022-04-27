@@ -191,9 +191,85 @@ def login():
         return show_the_login_form()
 </code></pre>
 <p>If GET is present, Flask automatically adds support for the HEAD method and handles HEAD requests according to the HTTP RFC. Likewise, OPTIONS is automatically implemented for you.</p>
+
+<h2>Static Files</h2>
+<p>Dynamic web applications also need static files. That's usually where the CSS and JavaScript files are coming from. Ideally your web server is configured to serve them for you, but during development Flask can do that as well. Just create a folder called <code>static</code>  in your package or next to your module and it will be available at <code>/static</code> on the application.</p>
+<p>To generate URLs for static files, use the special <code>'static'</code>  endpoint name:</p>
+<pre><code>url_for('static', filename='style.css')</code></pre>
+<p>The file has to be stored on the filesystem as <code>static/style.css</code>.</p>
+<h2>Rendering Templates</h2>
+<p>Generating HTML from within Python is not fun, and actually pretty cumbersome because you have to do the HTML escaping on your own to keep the application secure. Because of that Flask configures the <code>Jinja2</code>  template engine for you automatically.</p>
+<p>To render a template you can use the <code>render_template()</code>  method. All you have to do is provide the name of the template and the variables you want to pass to the template engine as keyword arguments. Here's a simple example of how to render a template:</p>
+<pre><code>from flask import render_template
+@app.route('/hello/')
+@app.route('/hello/<name>')
+def hello(name=None):
+    return render_template('hello.html', name=name)</code></pre>
+
+<p>Flask will look for templates in the templates folder. So if your application is a module, this folder is next to that module, if it's a package it's actually inside your package:</p>
+
+<h3>Case 1: a module</h3>
+<pre><code>/application.py
+/templates
+    /hello.html</code></pre>
+
+<h3>Case 2: a package</h3>
+<pre><code>/application
+/__init__.py
+/templates
+    /hello.html</code></pre>
+
+<p>For templates you can use the full power of Jinja2 templates.</p>
+<p>Here is an example template:</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;title&gt;Hello from Flask&lt;/title&gt;
+{% if name %}
+  &lt;h1&gt;Hello {{ name }}!&lt;/h1&gt;
+{% else %}
+  &lt;h1&gt;Hello, World!&lt;/h1&gt;
+{% endif %}   
+</code></pre>
+<p>Inside templates you also have access to the <code>config</code>, <code>request</code>, <code>session</code> and <code>global</code> objects as well as the <code>url_for()</code>  and <code>get_flashed_messages()</code> functions.</p>
+<p>Automatic escaping is enabled, so if <code>name</code>  contains HTML it will be escaped automatically. If you can trust a variable and you know that it will be safe HTML (for example because it came from a module that converts wiki markup to HTML) you can mark it as safe by using the <code>Markup</code>  class or by using the <code>|safe</code>  filter in the template.</p>
+<h2>The Request Object</h2>
+<p>Here is a broad overview of some of the most common operations. First of all you have to import it from the <code>flask</code>  module:</p>
+<pre><code>from flask import request</code></pre>
+<p>The current request method is available by using the <strong>method</strong>  attribute. To access form data (data transmitted in a POST or PUT request) you can use the form attribute. Here is a full example of the two attributes mentioned above:</p>
+
+<pre><code>@app.route('/login', methods=['POST', 'GET'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if valid_login(request.form['username'],
+                       request.form['password']):
+            return log_the_user_in(request.form['username'])
+        else:
+            error = 'Invalid username/password'
+    # the code below is executed if the request method
+    # was GET or the credentials were invalid
+    return render_template('login.html', error=error)
+</code></pre>
+<p>What happens if the key does not exist in the form attribute? In that case a special KeyError is raised. You can catch it like a standard KeyError but if you don't do that, a HTTP 400 Bad Request error page is shown instead. So for many situations you don't have to deal with that problem.</p>
+
+<p>To access parameters submitted in the URL <code>(?key=value)</code>  you can use the <strong>args</strong>  attribute:</p>
+<pre><code>searchword = request.args.get('key', '')</code></pre>
+
+<p>We recommend accessing URL parameters with <code>get</code>  or by catching the KeyError because users might change the URL and presenting them a <code>400 bad request</code>  page in that case is not user friendly.</p>
+
+<h2>File Uploads</h2>
+<p>You can handle uploaded files with Flask easily. Just make sure not to forget to set the <code>enctype="multipart/form-data"</code>  attribute on your HTML form, otherwise the browser will not transmit your files at all.</p>
+<p>Uploaded files are stored in memory or at a temporary location on the filesystem. You can access those files by looking at the <code>files</code>  attribute on the request object. Each uploaded file is stored in that dictionary. It behaves just like a standard Python <code>file</code>  object, but it also has a <code>save()</code>  method that allows you to store that file on the filesystem of the server. Here is a simple example showing how that works:</p>
+
+<pre><code>from flask import request
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        f = request.files['the_file']
+        f.save('/var/www/uploads/uploaded_file.txt'
+</code></pre>
+
             </div>
         </div>
-
     </section>
 
     <script src="../../blog.js"></script>
