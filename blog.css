@@ -80,5 +80,17 @@ code:not(pre > code) {
     border-bottom: 1px solid #dddddd;
 }
 
+#tableOfContents li {
+    margin-left: 20px;
+}
+#tableOfContents li a {
+    text-decoration: none;
+}
+
+
+li.h3 {
+    list-style-type: circle;
+}
+
 
 
