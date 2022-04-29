@@ -1,7 +1,7 @@
-const codeEle = document.querySelectorAll('pre > code')
-        codeEle.forEach(ele => {
-            ele.classList.add("language-python")
-        })
+// const codeEle = document.querySelectorAll('pre > code')
+//         codeEle.forEach(ele => {
+//             ele.classList.add("language-python")
+//         })
 
 
 //  ------------ Javascript for table of contents -----------------
@@ -29,7 +29,9 @@ const paddingValues = {
 const blogContent = document.querySelector('.blog__content')
 const headers = blogContent.querySelectorAll('h1, h2, h3, h4, h5, h6')
 
-if (headers) {
+
+
+if (headers.length) {
     // Create a div element with id 
     const contentListdiv = document.createElement('div')
     contentListdiv.setAttribute('id', 'tableOfContents')
