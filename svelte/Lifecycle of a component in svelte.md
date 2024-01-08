@@ -1,3 +1,5 @@
+
+
 Svelte is a popular JavaScript framework that provides a powerful toolset for building dynamic web applications. One of the key features of Svelte is its component-based architecture, which allows developers to create reusable and modular UI elements. In this article, we will explore the lifecycle of a Svelte component and the various methods that are available to manage the component's state and behavior.
 
 ## Component Lifecycle Overview

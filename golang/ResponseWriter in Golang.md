@@ -1,0 +1,25 @@
+
+
+In Go, the `ResponseWriter` interface is provided by the `net/http` package and is used to write the HTTP response back to the client. When a client sends an HTTP request to a server, the server processes the request and generates an HTTP response. The `ResponseWriter` interface allows the server to write the response back to the client.
+
+The `ResponseWriter` interface has a few methods that are used to write the response:
+
+-   `Header()` - This method returns a `Header` object that represents the headers of the HTTP response. You can use this method to set response headers such as the content type, cache-control, etc.
+    
+-   `Write([]byte)` - This method is used to write the response body. The body is typically a byte slice that represents the content of the response.
+    
+-   `WriteHeader(int)` - This method is used to set the HTTP status code of the response. For example, if the server wants to send a response with a 404 status code (page not found), it can call this method with the argument 404.
+    
+
+Here's an example of how to use the `ResponseWriter` interface in Go:
+
+```go
+func handler(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set("Content-Type", "text/plain")
+    w.WriteHeader(http.StatusOK)
+    w.Write([]byte("Hello, World!"))
+}
+
+```
+
+In this example, the `handler` function takes a `ResponseWriter` and an `http.Request` object as arguments. It first sets the content type header to `text/plain`, then sets the HTTP status code to `200 OK` using `WriteHeader`, and finally writes the response body `Hello, World!` using the `Write` method.

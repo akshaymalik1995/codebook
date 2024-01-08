@@ -1,3 +1,5 @@
+
+
 ## onMount
 
 Every component has a *lifecyle* that starts when it is created, and ends when it is destroyed. There are a handful of functions that allow you to run code at key moments during that lifecycle.

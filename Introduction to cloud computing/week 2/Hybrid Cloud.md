@@ -1,0 +1,25 @@
+1. Hybrid Cloud is a computing environment that connects an organization's on-premise private cloud and third-party public cloud into a single flexible infrastructure for running the organization's applications and workloads.
+2. The mix of public and private cloud resources gives organizations the flexibility to choose the optimal cloud for each application or workload. 
+3. Workloads move freely between the two clouds as needs change.
+4. Organizations can choose to run the sensitive highly regulated and mission-critical applications    or workloads with reasonably constant performance and capacity requirements on private Cloud infrastructure. While deploying the less sensitive and more dynamic workloads on the public cloud.
+5. With proper integrations and orchestration between the public and private clouds, you can leverage additional public cloud capacity to accommodate a spike in demand for a private cloud application also known as cloud bursting. 
+6. The key tenants of a hybrid cloud are interoperability, scalability and portability. 
+7. Hybrid cloud is interoperable which means, that the public and private cloud services can understand each other's APIs, configuration, data formats, and forms of authentication and authorization.
+8. When there is a spike in demand a workload running on the private cloud can leverage the additional cloud capacity making it scalable. 
+9. A hybrid cloud is also portable, since you are no longer locked in with a specific vendor, you can move applications and data not just between on-premise and cloud systems, but also between cloud service providers. 
+10. Hybrid is about taking the best of both worlds.
+11. There are two common types of hybrid clouds, hybrid mono-cloud and hybrid multi-cloud.
+12. A Hybrid Monocloud is a hybrid cloud with one cloud provider, while a Hybrid Multicloud is an open standards-based stack that can be deployed on any public cloud infrastructure. 
+13. The difference lies in the flexibility that the hybrid multicloud offers organizations to move workloads and environments from one vendor to another. 
+14. There is also a hybrid multicloud called the, Composite Multicloud, which makes the flexibility even  more granular as it distributes single applications across multiple providers, allowing you to move application components across cloud services and vendors as needed. 
+15. Hybrid cloud offers significant benefits in areas of security and compliance, scalability and resilience, resource optimizations, and cost saving. 
+16. A hybrid cloud lets organizations deploy highly regulated or sensitive workloads in a private cloud while running the less-sensitive workloads on a public cloud.
+17. Using a hybrid cloud you can scale up quickly, inexpensively, and even automatically using the public cloud infrastructure, all without impacting the other workloads running on your private cloud. Because you are not locked-in with a specific-vendor and also do not have to make either-or decisions between the different cloud models, you can make cost-efficient use of your infrastructure budget.
+18. You can maintain workloads where they are most efficient, spin-up environments using pay-as-you-go in public cloud, and rapidly adopt new tools as you need them.
+19. A typical organization will have a range of applications and workloads spread across private public and traditional IT environments. This represents a range of opportunities for optimizations via a hybrid cloud approach. Let's look at some increasingly common hybrid cloud use cases.
+20. **Software-as-a-Service integration**: Through hybrid integration organizations are connecting SaaS applications available in the public cloud to their existing public cloud, private cloud, and traditional IT applications to deliver new solutions. 
+21. **Data and AI integration**: Organizations today are creating richer and more personal experiences by combining new data sources on the public clou. Such as weather, social, the IoT, CRM, and ERP, with existing data in analytics, machine learning, and AI capabilities. 
+22. **Enhancing legacy apps**:  An increasing number of organizations are using public cloud services to upgrade their user experience of their on-premises applications and deploy them globally to new devices, while incrementally modernizing their Core Business Systems. 
+23. **VM ware migration**: More and more organizations are lifting and shifting their on-premises virtualized workloads to a public cloud without conversion or modification to reduce their on-premises data center footprint and position themselves to scale without added capital expense. 
+24. Hybrid cloud is a concept that is been around for quite some time, but we are finding that it is becoming increasingly used to architect and modernize existing or legacy applications.
+25. According to research we found that 75% of non-cloud applications will be moving to the cloud in the next three years.

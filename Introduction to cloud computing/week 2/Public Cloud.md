@@ -1,0 +1,25 @@
+- Cloud deployment models: Public Cloud, Private Cloud, and Hybrid Cloud
+- Public Cloud:
+  - Users access servers, storage, network, security, and applications as services over the internet
+  - Cloud provider owns, manages, provisions, and maintains the infrastructure
+  - Users don't own servers or storage and don't manage server operations or platform maintenance
+  - Similar to consuming utilities, users make agreements with service providers and pay for what they use
+  - Public clouds offer cost savings, scalability, but users lack control over computing environment
+  - Public cloud providers: Amazon Web Services, Microsoft Azure, IBM Cloud, Google Cloud Platform, Alibaba Cloud
+- Characteristics of a public cloud:
+  - Virtualized multi-tenant architecture
+  - Resources shared among tenants/users outside their firewalls
+  - Resources distributed on an as-needed basis with various subscription and pay-as-you-go models
+- Benefits of public cloud:
+  - On-demand resources for seamless response to demand fluctuations
+  - Significant economies of scale due to large number of users sharing resources
+  - High reliability with service remaining unaffected if one component fails
+- Concerns regarding public cloud:
+  - Security issues: data breaches, data loss, account hijacking, vulnerability
+  - Data sovereignty compliance: regulations governing storage, transfer, and security of data
+- Common use cases for public cloud:
+  - Accessing cloud-based applications and platforms for faster time-to-market
+  - Meeting fluctuating capacity and resourcing needs
+  - Building secondary infrastructures for disaster recovery, data protection, and business continuity
+  - Cloud storage and data management for accessibility, distribution, and backup
+  - Outsourcing management of less critical and standardized business platforms and applications to public cloud providers

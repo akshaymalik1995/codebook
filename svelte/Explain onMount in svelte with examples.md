@@ -1,4 +1,5 @@
 
+
 `onMount` is a lifecycle function in Svelte that is called when a component is first mounted to the DOM. It is often used to perform initial step, such as fetching data or setting up event listeners.
 
 Here is an example of using `onMount` to fetch data from an API:
